@@ -1,126 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Simulador de Lua</title>
+<meta charset="UTF-8">
+<title>Lua Offline</title>
   
-  <script src="https://daurnimator.github.io/lua.vm.js/src/lua.vm.js"></script>
-  <script src="https://daurnimator.github.io/lua.vm.js/src/lauxlib.vm.js"></script>
-  <script src="https://daurnimator.github.io/lua.vm.js/src/lualib.vm.js"></script>
+<script src="https://unpkg.com/fengari-web/dist/fengari-web.js"></script>
 
-  <style>
+<style>
     body {
-      background-color: black;
-      color: white;
-      font-family: "Courier New";
-      text-align: center;
-      padding: 20px;
+        background: black;
+        color: white;
+        font-family: monospace;
+        text-align: center;
+        padding: 20px;
     }
+
     textarea {
-      width: 80%;
-      height: 100px;
-      background: #111;
-      color: #0f0;
-      border: 2px solid cyan;
-      border-radius: 10px;
-      text-align: left;
-      font-size: 50px;
-      margin-top: 500px;
-      overflow-x: auto;
+        width: 90%;
+        height: 150px;
+        font-size: 28px;
+        background: #111;
+        color: #0f0;
+        border: 2px solid cyan;
+        border-radius: 8px;
+        margin-top: 40px;
     }
+
     button {
-      background-color: cyan;
-      color: black;
-      border: none;
-      border-radius: 10px;
-      width: 600px;
-      height: 200px;
-      margin-top: 480px;
-      font-size: 100px;
-      cursor: pointer;
+        margin-top: 20px;
+        padding: 20px 50px;
+        font-size: 40px;
+        border: none;
+        border-radius: 10px;
+        background: cyan;
+        color: black;
+        cursor: pointer;
     }
-    #videoz {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      object-fit: cover;
-    }
-    #imagem {
-      width: 270px;
-      height: 175px;
-      animation: girar 5s ease-in-out infinite;
-      position: absolute;
-      top: 325px;
-      left: 36%;
-    }
-    @keyframes girar {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+
     pre {
-      background-color: #111;
-      border: 2px solid cyan;
-      border-radius: 10px;
-      width: 80%;
-      margin: -500px auto;
-      text-align: left;
-      font-size: 60px;
-      color: lime;
-      height: 250px;
-      overflow: hidden;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+        margin-top: 30px;
+        width: 90%;
+        height: 250px;
+        font-size: 30px;
+        background: #000;
+        color: #0f0;
+        border: 2px solid cyan;
+        border-radius: 8px;
+        overflow-y: auto;
+        padding: 15px;
+        text-align: left;
     }
-  </style>
+</style>
 </head>
 
 <body>
-  <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
-  <img id="imagem" src="https://files.catbox.moe/l89zlv.png" alt="Logo Lua"></img>
-  
-  <h1 style="font-size: 100px;">Simulador De Lua</h1>
-  <textarea id="code" placeholder="Escreva código Lua aqui..."></textarea><br>
-  <button onclick="runLua()">Executar</button>
-  <pre id="output"></pre>
 
-  <script>
-    function runLua() {
-      const code = document.getElementById("code").value;
-      const outputEl = document.getElementById("output");
-      outputEl.innerText = "";
+<h1 style="font-size:70px;">Simulador Lua</h1>
 
-      try {
-        const L = lua.lua_newstate(); 
-        lualib.luaL_openlibs(L);
+<textarea id="code">print("Olá Mundo")</textarea><br>
 
-        // Sobrescreve a função print
-        lauxlib.lua_register(L, "print", function(L) {
-          let n = lua.lua_gettop(L);
-          let msg = "";
-          for (let i = 1; i <= n; i++) {
-            msg += lauxlib.lua_tojsstring(L, i) + "\t";
-          }
-          outputEl.innerText += msg + "\n";
-          return 0;
-        });
+<button onclick="runLua()">Executar</button>
 
-        const status = lauxlib.luaL_loadstring(L, code) || 
-                       lua.lua_pcall(L, 0, lua.LUA_MULTRET, 0);
+<pre id="output"></pre>
 
-        if (status !== 0) {
-          const err = lua.lua_tojsstring(L, -1);
-          outputEl.innerText += "Erro: " + err;
-        }
+<script>
+function runLua() {
+    const code = document.getElementById("code").value;
+    const outputEl = document.getElementById("output");
+    outputEl.innerText = "";  //
 
-        lua.lua_close(L);
+    try {
+      
+        fengari.load(`
+            print = function(...)
+                local out = ""
+                for i = 1, select("#", ...) do
+                    out = out .. tostring(select(i, ...)) .. "\\t"
+                end
+                js.global:output(out)
+            end
+        `)();
+      
+        window.output = function(txt) {
+            outputEl.innerText += txt + "\\n";
+        };
 
-      } catch (err) {
-        outputEl.innerText += "Erro: " + err;
-      }
+    
+        fengari.load(code)();
+
+    } catch (e) {
+        outputEl.innerText = "Erro: " + e;
     }
-  </script>
+}
+</script>
+
 </body>
-  </html>
+</html>
