@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de C++</title>
+  <script src="https://cdn.jsdelivr.net/npm/jscpp@0.5.4/dist/jscpp.es5.min.js"></script>
+  <style>
+    html, body {
+      color: white;
+      font-family: "Courier New";
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 250px;
+      background: #111;
+      color: #0f0;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 30px;
+      margin-top: 600px;
+    }
+    button {
+      background-color: cyan;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      width: 400px;
+      height: 100px;
+      margin-top: 400px;
+      font-size: 50px;
+      cursor: pointer;
+    }
+    pre {
+      background-color: #111;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      width: 80%;
+      margin: -375px auto;
+      text-align: left;
+      font-size: 30px;
+      color: lime;
+      min-height: 150px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+    
+    #imagem {
+      width: 250px;
+      height: 160px;
+      animation: girar 5s ease-in-out infinite;
+      position: absolute;
+      top: 325px;
+      left: 36%;
+    }
+    
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    #videoz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width; 100vw;
+      height: 100vh;
+      z-index: -1;
+      object-fit: cover;
+    }
+    
+  </style>
+</head>
+<body>
+  <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+  
+  <h1 style="font-size: 70px; position: absolute; top: 200px; left: 15%; text-align: center;">Simulador de C++</h1>
+
+  <textarea id="code">#include <iostream>
+using namespace std;
+
+int main() {
+    
+}</textarea><br>
+
+<img id="imagem" src="https://i.postimg.cc/VkWBRg2s/png-transparent-the-c-programming-language-programmer-computer-programming-programming-blue-logo-com.png"></img>
+
+  <button onclick="runCpp()">Executar</button>
+  <pre id="output"></pre>
+
+  <script>
+    function runCpp() {
+      const code = document.getElementById("code").value;
+      const output = document.getElementById("output");
+      output.textContent = "";
+
+      try {
+        const result = JSCPP.run(code, "", {
+          stdio: {
+            write: text => output.textContent += text
+          }
+        });
+      } catch (err) {
+        output.textContent = "⚠️ Erro: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
