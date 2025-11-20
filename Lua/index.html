@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lua</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      pre {
+        font-family: "Times New Roman";
+        font-size: 4vw;
+        color: white;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+        text-align: left;
+        padding: 20px;
+        border-radius: 10px;
+        margin: auto;
+        max-width: 90vw;
+      }
+      #videoz {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        object-fit: cover;
+      }
+      .cor {
+        animation: pulsar 3s ease-in-out infinite;
+        color: white;
+        border-radius: 75px;
+        font-size: 175px;
+        font-family: Comic Sans MS;
+        font-weight: 500;
+        letter-spacing: 5px;
+        text-align: center;
+        text-shadow: 
+          -4px -4px 0 rgb(0, 0, 0),
+           4px -4px 0 rgb(0, 0, 0),
+          -4px  4px 0 rgb(0, 0, 0),
+           4px  4px 0 rgb(0, 0, 0);
+        background: linear-gradient(to top, #4B8BBE, #4B8BBE, #e0f0ff);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        overflow: hidden;
+        z-index: 2;
+      }
+      @keyframes pulsar {
+        0%{ transform: scale(1.1); opacity: 1; }
+        50% { transform: scale(1); opacity: 0.9; }
+        100%{ transform: scale(1.1); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+    <pre>
+<span style="position: absolute; left: 100px; top: 100px;" class="cor">lua</span>
+
+
+
+
+
+
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tipos de Variáveis:</span>
+
+
+
+
+
+<span style="font-size: 60px; color: dodgerblue; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">number</span> → números inteiros ou decimais
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string</span> → textos (strings)
+
+<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">boolean</span> → verdadeiro ou falso
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table</span> → tabelas (listas ou dicionários em Lua)
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">nil</span> → ausência de valor
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">function</span> → funções
+
+
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Operadores e Métodos:</span>
+
+
+
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">..</span> → concatenação de strings
+
+<span style="font-size: 60px; color: rgb(0, 130, 40); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">#</span> → comprimento de uma tabela ou string
+
+<span style="font-size: 60px; color: rgb(55, 70, 170); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table.insert(tabela, valor)</span> → adiciona valor a uma tabela
+
+<span style="font-size: 60px; color: rgb(240, 80, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table.remove(tabela, indice)</span> → remove elemento da tabela
+
+<span style="font-size: 60px; color: rgb(255, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string.upper(texto)</span> → converte para maiúsculas
+
+<span style="font-size: 60px; color: rgb(100, 220, 180); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string.lower(texto)</span> → converte para minúsculas
+
+<span style="font-size: 60px; color: rgb(180, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">tonumber(valor)</span> → converte para número
+
+<span style="font-size: 60px; color: rgb(255, 200, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">tostring(valor)</span> → converte para string
+
+<span style="font-size: 60px; color: rgb(255, 150, 50); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">print(valor)</span> → imprime na tela
+
+<span style="font-size: 60px; color: rgb(70, 180, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">pairs(tabela)</span> → iteração sobre tabelas
+
+<span style="font-size: 60px; color: rgb(240, 80, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">ipairs(tabela)</span> → iteração sequencial sobre tabelas
+
+<span style="font-size: 60px; color: rgb(255, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.floor(valor)</span> → arredonda para baixo
+
+<span style="font-size: 60px; color: rgb(100, 220, 180); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.ceil(valor)</span> → arredonda para cima
+
+<span style="font-size: 60px; color: rgb(180, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.random(min, max)</span> → retorna número aleatório entre min e max
+
+<span style="font-size: 60px; color: rgb(255, 200, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">os.time()</span> → retorna tempo atual
+    </pre>
+  </body>
+</html>
