@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Java</title>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    pre {
+      font-family: "Times New Roman";
+      font-size: 4vw;
+      color: white;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-x: auto;
+      text-align: left;
+      padding: 20px;
+      border-radius: 10px;
+      margin: auto;
+      max-width: 90vw;
+    }
+
+    #videoz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width; 100vw;
+      height: 100vh;
+      z-index: -1;
+      object-fit: cover
+      }
+
+    .cor {
+      animation: pulsar 3s ease-in-out infinite;
+      color: cyan;
+      border-radius: 75px;
+      font-size: 175px;
+      font-family: Comic Sans MS;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-align: center;
+      text-shadow: 
+        -4px -4px 0 rgb(0, 0, 0),
+         4px -4px 0 rgb(0, 0, 0),
+        -4px  4px 0 rgb(0, 0, 0),
+         4px  4px 0 rgb(0, 0, 0);
+         background:
+      linear-gradient(to top, #ff2200, orange);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    @keyframes pulsar {
+      0% { transform: scale(1.1); opacity: 1; }
+      50% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+  <pre>
+    
+<span style="position: absolute; left: 100px; top: 100px;" class="cor"> Java </span>
+
+
+
+
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tipos de Dados:</span>
+
+
+<span style="font-size: 60px; color: dodgerblue; text-decoration: underline white; text-underline-offset: 15px;">int</span> → números inteiros (ex: 10, -5)
+
+<span style="font-size: 60px; color: red; text-decoration: underline white; text-underline-offset: 15px;">float</span> → números decimais simples (ex: 3.14f)
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">double</span> → números decimais com maior precisão
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">char</span> → caractere único (ex: 'a')
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">String</span> → texto (objeto imutável)
+
+<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">boolean</span> → verdadeiro (true) ou falso (false)
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">void</span> → ausência de retorno (usado em métodos)
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">var</span> → tipo inferido automaticamente (Java 10+)
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">long / short / byte</span> → variações numéricas
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">final</span> → define constante (valor imutável)
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Operadores:</span>
+
+
+<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">Aritméticos:</span> → +, -, *, /, %, ++, --
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">Relacionais:</span> → ==, !=, &lt;, &gt;, &lt;=, &gt;=
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">Lógicos:</span> → && (E), || (OU), ! (NÃO)
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">Atribuição:</span> → =, +=, -=, *=, /=, %=
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">Bitwise:</span> → &amp;, |, ^, ~, &lt;&lt;, &gt;&gt;
+
+<span style="font-size: 60px; color: white; text-decoration: underline white; text-underline-offset: 15px;">Outros:</span> → ?: (ternário), instanceof, new
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Entrada e Saída:</span>
+
+
+<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">System.out.println()</span> → imprime com quebra de linha
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">System.out.print()</span> → imprime sem quebrar linha
+
+<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">Scanner</span> → lê entrada do usuário (ex: Scanner sc = new Scanner(System.in);)
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">nextLine()</span> → lê linha completa (String)
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">nextInt(), nextDouble()</span> → lê números
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Estruturas de Controle:</span>
+
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">if / else</span> → decisão condicional
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">switch / case</span> → seleção de casos (suporta Strings no Java 7+)
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">for</span> → laço com contador
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">while</span> → laço com condição
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">do / while</span> → laço com verificação no final
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">break / continue</span> → controla fluxo dos laços
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Métodos (Funções):</span>
+
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">void nome()</span> → método sem retorno
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">tipo nome(parâmetros)</span> → método com retorno
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">return</span> → retorna valor
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">static</span> → pertence à classe, não à instância
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">this</span> → referência ao próprio objeto
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">recursivo</span> → método que chama a si mesmo
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">sobrecarga</span> → vários métodos com o mesmo nome, parâmetros diferentes
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Classes e Objetos:</span>
+
+
+<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">class</span> → define uma classe
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">public / private / protected</span> → níveis de acesso
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">constructor</span> → método com o mesmo nome da classe
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">new</span> → cria novo objeto
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">this</span> → referência ao próprio objeto
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">extends</span> → herança de outra classe
+
+<span style="font-size: 60px; color: white; text-decoration: underline white; text-underline-offset: 15px;">super</span> → chama construtor ou método da classe-pai
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">abstract / interface</span> → classes e contratos de métodos
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Strings (java.lang.String):</span>
+
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">.length()</span> → tamanho da string
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">.isEmpty()</span> → verifica se está vazia
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">.concat(str)</span> → concatena texto
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">.substring(i, j)</span> → extrai parte da string
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">.replace(a, b)</span> → substitui texto
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">.toUpperCase()</span> / .toLowerCase() → maiúsculas/minúsculas
+
+<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">.equals(str)</span> → compara conteúdo
+
+<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">.charAt(i)</span> → retorna caractere na posição
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">.contains(str)</span> → verifica se contém o texto
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Arrays e Coleções:</span>
+
+
+<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">int[] nums = new int[5];</span> → cria vetor de 5 inteiros
+
+<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">ArrayList&lt;T&gt;</span> → lista dinâmica (import java.util.*)
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">.add(x)</span> → adiciona elemento
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">.remove(i)</span> → remove elemento
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">.get(i)</span> → acessa elemento
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">.size()</span> → número de elementos
+
+<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">HashMap&lt;K,V&gt;</span> → armazena pares chave/valor
+
+<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">.put(k, v)</span> → adiciona valor
+
+<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">.get(k)</span> → obtém valor pela chave
+
+<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">.containsKey(k)</span> → verifica existência da chave
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tratamento de Exceções:</span>
+
+
+<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">try / catch</span> → captura erros em tempo de execução
+
+<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">finally</span> → executa sempre, mesmo com erro
+
+<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">throw</span> → lança exceção manualmente
+
+<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">throws</span> → declara que o método pode lançar exceções
+
+  </pre>
+</body>
+</html>
