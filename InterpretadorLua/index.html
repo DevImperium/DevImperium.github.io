@@ -7,6 +7,7 @@
   <script src="https://daurnimator.github.io/lua.vm.js/src/lua.vm.js"></script>
   <script src="https://daurnimator.github.io/lua.vm.js/src/lauxlib.vm.js"></script>
   <script src="https://daurnimator.github.io/lua.vm.js/src/lualib.vm.js"></script>
+
   <style>
     body {
       background-color: black;
@@ -90,34 +91,36 @@
       const code = document.getElementById("code").value;
       const outputEl = document.getElementById("output");
       outputEl.innerText = "";
+
       try {
-        
-        const L = lua_newstate();
-        lualib_open(L);
-        lauxlib_open(L);
-        
+        const L = lua.lua_newstate(); 
+        lualib.luaL_openlibs(L);
+
+        // Sobrescreve a função print
         lauxlib.lua_register(L, "print", function(L) {
-          const n = lua.lua_gettop(L);
-          let s = "";
+          let n = lua.lua_gettop(L);
+          let msg = "";
           for (let i = 1; i <= n; i++) {
-            if (i > 1) s += "\t";
-            s += lauxlib.lua_tojsstring(L, i);
+            msg += lauxlib.lua_tojsstring(L, i) + "\t";
           }
-          s += "\n";
-          outputEl.innerText += s;
-          return 0; 
+          outputEl.innerText += msg + "\n";
+          return 0;
         });
-        
-        const status = lauxlib.luaL_loadstring(L, code) || lua.lua_pcall(L, 0, lua.LUA_MULTRET, 0);
+
+        const status = lauxlib.luaL_loadstring(L, code) || 
+                       lua.lua_pcall(L, 0, lua.LUA_MULTRET, 0);
+
         if (status !== 0) {
           const err = lua.lua_tojsstring(L, -1);
           outputEl.innerText += "Erro: " + err;
         }
-        lua_close(L);
+
+        lua.lua_close(L);
+
       } catch (err) {
         outputEl.innerText += "Erro: " + err;
       }
     }
   </script>
 </body>
-</html>
+  </html>
