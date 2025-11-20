@@ -1,98 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lua Offline</title>
-  
-<script src="https://unpkg.com/fengari-web/dist/fengari-web.js"></script>
+  <meta charset="UTF-8">
+  <title>Simulador de Lua</title>
 
-<style>
+  <script src="https://unpkg.com/fengari-web/dist/fengari-web.js"></script>
+
+  <style>
     body {
-        background: black;
-        color: white;
-        font-family: monospace;
-        text-align: center;
-        padding: 20px;
+      background-color: black;
+      color: white;
+      font-family: "Courier New";
+      text-align: center;
+      padding: 20px;
     }
-
     textarea {
-        width: 90%;
-        height: 150px;
-        font-size: 28px;
-        background: #111;
-        color: #0f0;
-        border: 2px solid cyan;
-        border-radius: 8px;
-        margin-top: 40px;
+      width: 80%;
+      height: 100px;
+      background: #111;
+      color: #0f0;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 50px;
+      margin-top: 500px;
+      overflow-x: auto;
     }
-
     button {
-        margin-top: 20px;
-        padding: 20px 50px;
-        font-size: 40px;
-        border: none;
-        border-radius: 10px;
-        background: cyan;
-        color: black;
-        cursor: pointer;
+      background-color: cyan;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      width: 600px;
+      height: 200px;
+      margin-top: 480px;
+      font-size: 100px;
+      cursor: pointer;
     }
-
+    #videoz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      object-fit: cover;
+    }
+    #imagem {
+      width: 270px;
+      height: 175px;
+      animation: girar 5s ease-in-out infinite;
+      position: absolute;
+      top: 325px;
+      left: 36%;
+    }
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
     pre {
-        margin-top: 30px;
-        width: 90%;
-        height: 250px;
-        font-size: 30px;
-        background: #000;
-        color: #0f0;
-        border: 2px solid cyan;
-        border-radius: 8px;
-        overflow-y: auto;
-        padding: 15px;
-        text-align: left;
+      background-color: #111;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      width: 80%;
+      margin: -500px auto;
+      text-align: left;
+      font-size: 60px;
+      color: lime;
+      height: 250px;
+      overflow: hidden;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
-</style>
+  </style>
 </head>
 
 <body>
+  <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+  <img id="imagem" src="https://files.catbox.moe/l89zlv.png" alt="Logo Lua"></img>
+  
+  <h1 style="font-size: 100px;">Simulador De Lua</h1>
+  <textarea id="code" placeholder="Escreva código Lua aqui..."></textarea><br>
+  <button onclick="runLua()">Executar</button>
+  <pre id="output"></pre>
 
-<h1 style="font-size:70px;">Simulador Lua</h1>
+  <script>
+    const { lua, lauxlib, lualib, to_jsstring } = fengari;
 
-<textarea id="code">print("Olá Mundo")</textarea><br>
+    function runLua() {
+      const code = document.getElementById("code").value;
+      const output = document.getElementById("output");
+      output.innerText = "";
 
-<button onclick="runLua()">Executar</button>
+      try {
+        const L = lauxlib.luaL_newstate();
+        lualib.luaL_openlibs(L);
 
-<pre id="output"></pre>
-
-<script>
-function runLua() {
-    const code = document.getElementById("code").value;
-    const outputEl = document.getElementById("output");
-    outputEl.innerText = "";  //
-
-    try {
-      
-        fengari.load(`
-            print = function(...)
-                local out = ""
-                for i = 1, select("#", ...) do
-                    out = out .. tostring(select(i, ...)) .. "\\t"
-                end
-                js.global:output(out)
-            end
-        `)();
-      
-        window.output = function(txt) {
-            outputEl.innerText += txt + "\\n";
+        const printFunc = function(L) {
+          let out = "";
+          const n = lua.lua_gettop(L);
+          for (let i = 1; i <= n; i++) {
+            if (i > 1) out += "\t";
+            out += to_jsstring(lauxlib.luaL_tolstring(L, i));
+            lua.lua_pop(L, 1);
+          }
+          output.innerText += out + "\n";
+          return 0;
         };
 
-    
-        fengari.load(code)();
+        lua.lua_pushjsfunction(L, printFunc);
+        lua.lua_setglobal(L, "print");
 
-    } catch (e) {
-        outputEl.innerText = "Erro: " + e;
+        const status = lauxlib.luaL_loadstring(L, code);
+
+        if (status === 0) {
+          lua.lua_pcall(L, 0, lua.LUA_MULTRET, 0);
+        } else {
+          const err = to_jsstring(lua.lua_tostring(L, -1));
+          output.innerText = "Erro: " + err;
+        }
+
+      } catch (err) {
+        output.innerText = "Erro: " + err;
+      }
     }
-}
-</script>
-
+  </script>
 </body>
 </html>
