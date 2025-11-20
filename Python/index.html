@@ -1,0 +1,419 @@
+ <!DOCTYPE html>
+
+<html>
+  
+  <style>
+  body {
+    background-color: black;
+  }
+  
+    pre {
+  font-family: "Times New Roman";
+  font-size: 4vw;
+  color: white;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  text-align: left;
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+  max-width: 90vw;
+}
+    #videoz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width; 100vw;
+      height: 100vh;
+      z-index: -1;
+      object-fit: cover
+      }
+      
+      .cor {
+      animation: pulsar 3s ease-in-out infinite;
+      color: white;
+      border-radius: 75px;
+      font-size: 175px;
+      font-family: Comic Sans MS;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-align: center;
+      text-shadow: 
+        -4px -4px 0 rgb(0, 0, 0),
+         4px -4px 0 rgb(0, 0, 0),
+        -4px  4px 0 rgb(0, 0, 0),
+         4px  4px 0 rgb(0, 0, 0);
+         background:
+      linear-gradient(to left, #FFD700, #4B8BBE);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+      }
+    
+    @keyframes pulsar {
+  0%{ transform: scale(1.1); opacity: 1; }
+  50% { transform: scale(1); opacity: 0.9; }
+  100%{ transform: scale(1.1); opacity: 1; }
+}
+    
+  </style>
+  <head>
+    <meta charset="UTF-8">
+    <title>Python</title>
+  </head>
+  
+  <body>
+    <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+    <pre>
+      
+      <span style="position: absolute; left: 100px; top: 100px;"class="cor"> python</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Variáveis:</span>
+      
+      
+      
+  <span style="font-size: 60px; color: dodgerblue; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">int</span> → números inteiros
+  
+  
+  <span style="font-size: 60px; color: red; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">float</span> → números decimais
+  
+  
+  <span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">str</span> → textos (strings)
+  
+  
+  <span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">bool</span> → valores booleanos (verdadeiro ou falso)
+  
+  
+  <span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">list</span> → lista que pode mudar
+  
+  
+  <span style="font-size: 60px; color: darkred; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">tuple</span> → lista que não pode mudar
+  
+  
+  <span style="font-size: 60px; color: slategrey; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">dict</span> → pares de chave e valor
+  
+  
+  <span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">set</span> → conjunto sem repetições
+  
+  
+  <span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">range</span> → sequência de números
+  
+  
+  <span style="font-size: 60px; color: purple; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">complex</span> → números complexos (com j)
+  
+  
+  <span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">bytes</span> → dados binários imutáveis
+  
+  
+  <span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">bytearray</span> → dados binários mutáveis
+  
+  
+  <span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">NoneType</span> → ausência de valor
+  
+  
+  <span style="font-size: 60px; color: lightsteelblue; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">object</span> → base de todos os objetos
+  
+  
+  <span style="font-size: 60px; color: mediumspringgreen; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">type</span> → mostra o tipo de um objeto
+      
+      
+      
+      <span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Métodos:</span>
+      
+      
+      
+  <span style="font-size: 60px; color: rgb(55, 70, 170); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.upper()</span> → Converte os caracteres pra maiúsculas
+  
+  
+  <span style="font-size: 60px; color: rgb(0, 130, 40); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.lower()</span> → converte todos os caracteres pra minúsculas
+  
+  
+  <span style="font-size: 60px; color: rgb(155, 200, 50); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.capitalize()</span> → a primeira letra fica maiúscula e o resto minúscula
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 100, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.title()</span> → coloca a primeira letra de cada palavra em maiúscula
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 166, 125); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.strip()</span> → remove espaços ou caracteres extras no inicio e no fim
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 100, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">.replace(a, b)</span> → Troca todos os "a" por "b"
+  
+  
+  <span style="font-size: 60px; color: rgb(105, 199, 176); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">casefold()</span> → converte tudo para minúsculo (mais forte que lower)
+  
+  
+  <span style="font-size: 60px; color: rgb(125, 166, 106); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">center(width, fillchar)</span> → centraliza o texto com tamanho fixo width e preenche com fillchar
+  
+  
+  <span style="font-size: 60px; color: rgb(15, 46, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">count(sub[, start[, end]])</span> → conta quantas vezes aparece
+  
+  
+  <span style="font-size: 60px; color: rgb(165, 66, 106); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">encode(encoding="utf-8", errors="strict")</span> → retorna a string codificada
+  
+  
+  <span style="font-size: 60px; color: rgb(155, 251, 75); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">endswith(suffix[, start[, end]])</span> → retorna True se a string terminar com suffix
+  
+  
+  <span style="font-size: 60px; color: rgb(234, 56, 86); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">expandtabs(tabsize=8)</span> → subistitui tabulações por espaços
+  
+  
+  <span style="font-size: 60px; color: rgb(105, 56, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">find(sub[, start[, end]])</span> → retorna o índice da primeira occorência de sub, ou -1 se não achar
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 98, 56); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">format(*args, **kwargs)</span> → formata a string usando chaves {}
+  
+  
+  <span style="font-size: 60px; color: rgb(258, 204, 156); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">format-map(mapping)</span> → igual ao format() mas usando um dicionario
+  
+  <span style="font-size: 60px; color: rgb(125, 125, 236); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">index(sub[, start[, end]])</span> → igual ao find() mas gera erro se não achar
+  
+  
+  <span style="font-size: 60px; color: rgb(211, 240, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isalnum()</span> → retorna true se todos os caracteres forem letras ou números
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 50, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isalpha()</span> → retorna true se todos os caracteres forem letras
+  
+  
+  <span style="font-size: 60px; color: rgb(65, 255, 76); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isascii</span> → retorna true se todos os forem caracteres ASCII (A-Z, 0-9, etc)
+  
+  
+  <span style="font-size: 60px; color: rgb(235, 106, 155); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isdecimal()</span> → retorna true se todos os caracteres forem numeros decimais
+  
+  
+  <span style="font-size: 60px; color: rgb(199, 255, 77); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isdigit()</span> → retorna true se todos os caracteres forem digitos (inclue expoentes, subscritos, etc)
+  
+  
+  <span style="font-size: 60px; color: rgb(66, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isidentifier()</span> → retorna true se uma string for o nome de uma variável válida em Python
+  
+  
+  <span style="font-size: 60px; color: rgb(125, 205, 75); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">islower()</span> → retorna true se todos os caracteres forem minúsculos
+  
+  
+  <span style="font-size: 60px; color: rgb(175, 160, 99); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isnumeric()</span> → retorna true se todos os caracteres forem todos numéricos
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 96, 56); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isprintable()</span> → retorna true se todos os caracteres forem imprimíveis (print)
+  
+  
+  <span style="font-size: 60px; color: rgb(50, 156, 175); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isspace()</span> → retorna true se todos forem espaços ou caracteres de espaço em branco
+  
+  
+  <span style="font-size: 60px; color: rgb(95, 66, 96); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">istitle()</span> → retorna true se cada palavra começar com letra maiúscula
+  
+  
+  <span style="font-size: 60px; color: rgb(165, 156, 156); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isupper()</span> → retorna true se todos os caracteres forem maiúsculos
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 66, 66); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">join(iterable)</span> → junta os elementos de um iterável em uma string usando o texto atual como separador
+  
+  
+  <span style="font-size: 60px; color: rgb(125, 251, 55); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">ljus(width, fillchar=' ')</span> → alinha o texto a esquerda e preenche com fillchar
+  
+  
+  <span style="font-size: 60px; color: rgb(200, 160, 70); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">lower()</span> → converte todos os caracteres para minúsculo
+  
+  
+  <span style="font-size: 60px; color: rgb(155, 206, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">lstrip([chars])</span> → remove espaços ou caracteres dados (do inicio)
+  
+  
+  <span style="font-size: 60px; color: rgb(195, 66, 66); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">maketrans(x, y, z)</span> → cria uma tabela de tradução para translate
+  
+  
+  <span style="font-size: 60px; color: rgb(15, 96, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">partition(sep)</span> → divide em 3 partes: antes, separador e depois (primeira occorência)
+  
+  
+  <span style="font-size: 60px; color: rgb(255, 99, 157); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">removeprefix(prefix)</span> → remove um prefixo se existir
+  
+  
+  <span style="font-size: 60px; color: rgb(233, 86, 70); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">removesuffix(suffix)</span> → remove um sufixo se existir
+  
+  
+  <span style="font-size: 60px; color: rgb(195, 126, 206); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">replace(old, new[, count])</span> → troca old por new (count se quiser limitar)
+  
+  
+  <span style="font-size: 60px; color: rgb(95, 226, 190); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rfind(sub[, start[, find]])</span> → igual find() mas procura da direita pra esqurda
+  
+  
+  <span style="font-size: 60px; color: rgb(235, 96, 156); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rindex(sub[, start[, end]])</span> → igual index mas pela direita
+  
+  
+  <span style="font-size: 60px; color: rgb(385, 96, 77); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rjust(width, fillchar=' '</span> → alinha à direita
+  
+  
+  <span style="font-size: 60px; color: rgb(365, 200, 356); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rpartition(sep)</span> → divide em 3 partes a partir da ultima occorência de sep
+  
+  
+  <span style="font-size: 60px; color: rgb(165, 306, 306); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rsplit(sep=None, maxsplit=-1</span> → divide da esquerda para a direita
+  
+  
+  <span style="font-size: 60px; color: rgb(305, 166, 299); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">rsplit([chars])</span> → remove espaços ou caracteres dados do fim
+  
+  
+  <span style="font-size: 60px; color: rgb(365, 66, 66); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">split(sep=None, maxsplit=-1)</span> → divide uma lista usando o separador (da esquerda para a direita)
+  
+  
+  <span style="font-size: 60px; color: rgb(155, 96, 306); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">splitlines(keepends=False)</span> → divide uma string em linhas \n, \r, etc
+  
+  
+  <span style="font-size: 60px; color: rgb(65, 46, 306); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">startswith(prefix[, start[, end]])</span> → retorna true se a string começar com prefix
+  
+  
+  <span style="font-size: 60px; color: rgb(265, 186, 396); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">strip([chars])</span> → remove espaços ou caracteres dados no inicio e fim
+  
+  
+  <span style="font-size: 60px; color: rgb(200, 300, 100); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">swapcase()</span> → inverte maiúsculas/minúsculas
+  
+  
+  <span style="font-size: 60px; color: rgb(65, 216, 300); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">translate(table)</span> → subistitui caracteres com base em uma tabela (maketrans)
+  
+  
+  <span style="font-size: 60px; color: rgb(165, 66, 106); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">zfill(width)</span> → preenche uma string com zeros a esquerda até atingir o tamanho indicado
+  
+  
+  <span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Listas (list):</span>
+
+
+<span style="font-size: 60px; color: rgb(255, 150, 50); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">append(x)</span> → adiciona um item ao final da lista
+
+
+<span style="font-size: 60px; color: rgb(100, 220, 180); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">extend(iterable)</span> → adiciona vários itens (de um iterável) ao final da lista
+
+
+<span style="font-size: 60px; color: rgb(240, 80, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">insert(i, x)</span> → insere o item x na posição i
+
+
+<span style="font-size: 60px; color: rgb(255, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">remove(x)</span> → remove a primeira ocorrência do valor x
+
+
+<span style="font-size: 60px; color: rgb(70, 180, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">pop([i])</span> → remove e retorna o item na posição i (ou o último se não for passado)
+
+
+<span style="font-size: 60px; color: rgb(155, 200, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">clear()</span> → remove todos os itens da lista
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">index(x[, start[, end]])</span> → retorna o índice do primeiro item igual a x
+
+
+<span style="font-size: 60px; color: rgb(120, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">count(x)</span> → conta quantas vezes o valor x aparece na lista
+
+
+<span style="font-size: 60px; color: rgb(255, 180, 50); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">sort(key=None, reverse=False)</span> → ordena a lista
+
+
+<span style="font-size: 60px; color: rgb(180, 160, 250); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">reverse()</span> → inverte a ordem dos elementos da lista
+
+
+<span style="font-size: 60px; color: rgb(255, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">copy()</span> → cria uma cópia rasa da lista
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tuplas (tuple):</span>
+
+
+<span style="font-size: 60px; color: rgb(180, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">count(x)</span> → conta quantas vezes o valor x aparece
+
+
+<span style="font-size: 60px; color: rgb(255, 200, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">index(x[, start[, end]])</span> → retorna o índice do primeiro valor igual a x
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Dicionários (dict):</span>
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">get(key[, default])</span> → retorna o valor da chave, ou default se não existir
+
+
+<span style="font-size: 60px; color: rgb(90, 200, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">items()</span> → retorna uma lista de tuplas (chave, valor)
+
+
+<span style="font-size: 60px; color: rgb(255, 230, 100); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">keys()</span> → retorna todas as chaves
+
+
+<span style="font-size: 60px; color: rgb(160, 255, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">values()</span> → retorna todos os valores
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 150); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">pop(key[, default])</span> → remove e retorna o valor da chave
+
+
+<span style="font-size: 60px; color: rgb(200, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">popitem()</span> → remove e retorna o último par (chave, valor)
+
+
+<span style="font-size: 60px; color: rgb(255, 160, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">setdefault(key[, default])</span> → retorna o valor da chave, cria se não existir
+
+
+<span style="font-size: 60px; color: rgb(150, 200, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">update([other])</span> → atualiza o dicionário com pares de outro dicionário
+
+
+<span style="font-size: 60px; color: rgb(255, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">clear()</span> → remove todos os itens do dicionário
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">copy()</span> → retorna uma cópia rasa do dicionário
+
+
+
+<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Conjuntos (set):</span>
+
+
+<span style="font-size: 60px; color: rgb(255, 200, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">add(elem)</span> → adiciona um elemento ao conjunto
+
+
+<span style="font-size: 60px; color: rgb(100, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">clear()</span> → remove todos os elementos
+
+
+<span style="font-size: 60px; color: rgb(255, 150, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">copy()</span> → retorna uma cópia rasa do conjunto
+
+
+<span style="font-size: 60px; color: rgb(150, 200, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">difference(*others)</span> → retorna os elementos que não estão nos outros conjuntos
+
+
+<span style="font-size: 60px; color: rgb(255, 255, 150); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">difference_update(*others)</span> → remove os elementos presentes em outros conjuntos
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 100); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">discard(elem)</span> → remove o elemento, se existir
+
+
+<span style="font-size: 60px; color: rgb(200, 255, 100); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">intersection(*others)</span> → retorna a interseção com outros conjuntos
+
+
+<span style="font-size: 60px; color: rgb(100, 200, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">intersection_update(*others)</span> → mantém apenas elementos comuns
+
+
+<span style="font-size: 60px; color: rgb(255, 160, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">isdisjoint(other)</span> → retorna True se não houver elementos em comum
+
+
+<span style="font-size: 60px; color: rgb(160, 255, 150); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">issubset(other)</span> → True se for subconjunto de outro
+
+
+<span style="font-size: 60px; color: rgb(255, 200, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">issuperset(other)</span> → True se for superconjunto de outro
+
+
+<span style="font-size: 60px; color: rgb(200, 150, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">pop()</span> → remove e retorna um elemento aleatório
+
+
+<span style="font-size: 60px; color: rgb(255, 250, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">remove(elem)</span> → remove o elemento (gera erro se não existir)
+
+
+<span style="font-size: 60px; color: rgb(100, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">symmetric_difference(other)</span> → retorna elementos que estão em apenas um dos conjuntos
+
+
+<span style="font-size: 60px; color: rgb(255, 100, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">union(*others)</span> → retorna a união dos conjuntos
+
+
+<span style="font-size: 60px; color: rgb(255, 255, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">update(*others)</span> → adiciona elementos de outros Conjuntos
+    </pre>
+  </body>
+</html>
