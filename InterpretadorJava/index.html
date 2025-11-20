@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Java</title>
+  <script src="https://cdn.jsdelivr.net/gh/nicolas-van/java-wasm@master/js/java-wasm.js"></script>
+  <style>
+    html, body {
+      color: white;
+      font-family: "Courier New";
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 250px;
+      background: #111;
+      color: #0f0;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 30px;
+      margin-top: 600px;
+    }
+    button {
+      background-color: cyan;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      width: 400px;
+      height: 100px;
+      margin-top: 400px;
+      font-size: 50px;
+      cursor: pointer;
+    }
+    pre {
+      background-color: #111;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      width: 80%;
+      margin: -375px auto;
+      text-align: left;
+      font-size: 30px;
+      color: lime;
+      min-height: 150px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+    #imagem {
+      width: 250px;
+      height: 160px;
+      animation: girar 5s ease-in-out infinite;
+      position: absolute;
+      top: 325px;
+      left: 36%;
+    }
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    #videoz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
+  
+  <h1 style="font-size: 70px; position: absolute; top: 200px; left: 15%; text-align: center;">Simulador de Java</h1>
+
+  <textarea id="code">public class Main {
+  public static void main(String[] args) {
+    
+  }
+}</textarea><br>
+
+  <img id="imagem" src="https://upload.wikimedia.org/wikipedia/pt/3/30/Java_programming_language_logo.svg"></img>
+
+  <button onclick="runJava()">Executar</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function runJava() {
+      const code = document.getElementById("code").value;
+      const output = document.getElementById("output");
+      output.textContent = "Compilando e executando...\n";
+
+      try {
+        const java = await JavaWASM.create();
+        const result = await java.run(code);
+        output.textContent = result.output || "Programa executado sem saída";
+      } catch (err) {
+        output.textContent = "Erro: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
