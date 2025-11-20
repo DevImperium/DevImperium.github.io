@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Simulador de Lua</title>
 
-  <script src="https://unpkg.com/fengari-web/dist/fengari-web.js"></script>
+  <!-- Interpretador Lua funcional -->
+  <script src="https://cdn.jsdelivr.net/gh/vovkkk/lua.vm.js/lua.vm.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/vovkkk/lua.vm.js/lauxlib.vm.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/vovkkk/lua.vm.js/lualib.vm.js"></script>
 
   <style>
     body {
@@ -85,43 +88,36 @@
   <pre id="output"></pre>
 
   <script>
-    const { lua, lauxlib, lualib, to_jsstring } = fengari;
-
     function runLua() {
       const code = document.getElementById("code").value;
-      const output = document.getElementById("output");
-      output.innerText = "";
+      const outputEl = document.getElementById("output");
+      outputEl.innerText = "";
 
       try {
-        const L = lauxlib.luaL_newstate();
+        const L = lua.lua_newstate();
         lualib.luaL_openlibs(L);
 
-        const printFunc = function(L) {
+        lauxlib.lua_register(L, "print", function(L) {
+          const top = lua.lua_gettop(L);
           let out = "";
-          const n = lua.lua_gettop(L);
-          for (let i = 1; i <= n; i++) {
+          for (let i = 1; i <= top; i++) {
             if (i > 1) out += "\t";
-            out += to_jsstring(lauxlib.luaL_tolstring(L, i));
-            lua.lua_pop(L, 1);
+            out += lauxlib.lua_tojsstring(L, i);
           }
-          output.innerText += out + "\n";
+          outputEl.innerText += out + "\n";
           return 0;
-        };
-
-        lua.lua_pushjsfunction(L, printFunc);
-        lua.lua_setglobal(L, "print");
+        });
 
         const status = lauxlib.luaL_loadstring(L, code);
-
         if (status === 0) {
           lua.lua_pcall(L, 0, lua.LUA_MULTRET, 0);
         } else {
-          const err = to_jsstring(lua.lua_tostring(L, -1));
-          output.innerText = "Erro: " + err;
+          const err = lauxlib.lua_tojsstring(L, -1);
+          outputEl.innerText = "Erro: " + err;
         }
 
       } catch (err) {
-        output.innerText = "Erro: " + err;
+        outputEl.innerText = "Erro: " + err;
       }
     }
   </script>
