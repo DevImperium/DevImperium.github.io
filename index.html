@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dev Imperium</title>
+  <style>
+    html, body {
+      min-height: 300%;
+      margin: 0;
+    }
+    #prim {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      text-align: center;
+      font-family: Georgia;
+      z-index: 2;
+      color: white;
+    }
+    
+    #ensina {
+      position: absolute;
+      left: 0%;
+      top: 100%;
+      font-size: 60px;
+      letter-spacing: 3px;
+      text-align: center;
+      font-family: 'Press Start 2P';
+      z-index: 2;
+      color: white;
+    }
+    
+    #coisa {
+  position: absolute;
+  top: 2325px;
+  left: 8%;
+  width: 85%;
+  height: 1700px;
+  border-radius: 40px;
+  z-index: 0;
+  object-fit: cover;
+}
+    
+    .cor {
+      color: gold;
+      font-size: 35px;
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+    }
+    
+    #segn {
+      position: relative;
+      font-size: 45px;
+      text-align: center;
+      top: 100px;
+      font-family: "Times New Roman";
+      z-index: 2;
+      color: white;
+    }
+    
+    .container {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    
+    @keyframes batalhar {
+      0% {opacity: 1; }
+      50% {opacity: 0; }
+      100% {opacity: 1; }
+    }
+    
+    .primvid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    #texto {
+      position: absolute;
+      color: rgb(200,200,200);
+      font-family: Comic Sans MS;
+      border: 3px solid white;
+      width: 650px;
+      font-size: 35px;
+      left: 17%;
+      top: 4775px;
+      height: 80px;
+      z-index: 2;
+      background: linear-gradient(to right, #eae1, #ffa5);
+    }
+    
+    .botao {
+      cursor: pointer;
+      border-radius: 2000px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 17%;
+      top: 1300px;
+      width: 650px;
+      height: 205px;
+      font-size: 125px;
+      color: yellow;
+      font-family: Sans-Serif;
+      font-weight: 700;
+      text-shadow: 
+        -3px -3px 0 rgb(0, 0, 0),
+         3px -3px 0 rgb(0, 0, 0),
+        -3px  3px 0 rgb(0, 0, 0),
+         3px  3px 0 rgb(0, 0, 0);
+      background:
+        linear-gradient(to top, #ff0, #0ff);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    .botao2 {
+      cursor: pointer;
+      border-radius: 2000px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 17%;
+      top: 1500px;
+      width: 650px;
+      height: 205px;
+      font-size: 125px;
+      color: white;
+      font-family: Sans-Serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-shadow: 
+        -3px -3px 0 rgb(0, 0, 0),
+         3px -3px 0 rgb(0, 0, 0),
+        -3px  3px 0 rgb(0, 0, 0),
+         3px  3px 0 rgb(0, 0, 0);
+      background:
+        linear-gradient(to top, #00008b, #0ff);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    .botao3 {
+      cursor: pointer;
+      border-radius: 2000px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 17%;
+      top: 1700px;
+      width: 650px;
+      height: 205px;
+      font-size: 125px;
+      color: cyan;
+      font-family: Sans-Serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-shadow: 
+        -3px -3px 0 rgb(0, 0, 0),
+         3px -3px 0 rgb(0, 0, 0),
+        -3px  3px 0 rgb(0, 0, 0),
+         3px  3px 0 rgb(0, 0, 0);
+      background:
+        linear-gradient(to top, red, orange);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    .botaoenviar {
+      cursor: pointer;
+      border-radius: 25px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 30%;
+      top: 4845px;
+      width: 400px;
+      height: 95px;
+      font-size: 70px;
+      color: rgb(200,200,200);
+      font-family: Sans-Serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-shadow: 
+        -3px -3px 0 rgb(30, 30, 30),
+         3px -3px 0 rgb(30, 30, 30),
+        -3px  3px 0 rgb(30, 30, 30),
+         3px  3px 0 rgb(30, 30, 30);
+      background:
+        linear-gradient(to top, grey, #afe1);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    #reclamacao {
+      position: absolute;
+      font-size: 47px;
+      left: 5%;
+      top: 4580px;
+      font-family: Times New Roman;
+      color: white;
+      z-index: 2;
+      text-align: center;
+    }
+    
+    .botaodiscord {
+      cursor: pointer;
+      border-radius: 15px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      opacity: 0.9;
+      align-items: center;
+      left: 44%;
+      top: 4285px;
+      width: 100px;
+      height: 100px;
+      background-position: center;
+      background-image: url('https://files.catbox.moe/7lbl7k.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 4;
+    }
+    
+    #entrai {
+      position: absolute;
+      font-size: 60px;
+      left: 29%;
+      opacity: 0.75;
+      border-radius: 10px;
+      top: 4200px;
+      background: linear-gradient(to top, #ffb3, #aae5);
+      font-family: Times New Roman;
+      padding-bottom: 150px;
+      margin: 0;
+      color: white;
+      z-index: 2;
+      text-align: center;
+    }
+    
+        .botao4 {
+      cursor: pointer;
+      border-radius: 2000px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 17%;
+      top: 1900px;
+      width: 650px;
+      height: 205px;
+      font-size: 125px;
+      color: white;
+      font-family: Sans-Serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-shadow: 
+        -3px -3px 0 rgb(0, 0, 0),
+         3px -3px 0 rgb(0, 0, 0),
+        -3px  3px 0 rgb(0, 0, 0),
+         3px  3px 0 rgb(0, 0, 0);
+      background:
+        linear-gradient(to top, #2A4D8F,
+#478ECC, #5299E0);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    .botao5 {
+  cursor: pointer;
+  border-radius: 2000px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 32%;
+  top: 725px;
+  width: 325px;
+  height: 100px;
+  font-size: 37px;
+  color: yellow;
+  font-family: Sans-Serif;
+  font-weight: 700;
+  text-shadow:
+    -3px -3px 0 rgb(0, 0, 0),
+     3px -3px 0 rgb(0, 0, 0),
+    -3px  3px 0 rgb(0, 0, 0),
+     3px  3px 0 rgb(0, 0, 0);
+  background: linear-gradient(to top, #ff0, #0ff);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.botao6 {
+  cursor: pointer;
+  border-radius: 2000px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 32%;
+  top: 1025px;
+  width: 325px;
+  height: 100px;
+  font-size: 37px;
+  color: white;
+  font-family: Sans-Serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow:
+    -3px -3px 0 rgb(0, 0, 0),
+     3px -3px 0 rgb(0, 0, 0),
+    -3px  3px 0 rgb(0, 0, 0),
+     3px  3px 0 rgb(0, 0, 0);
+  background: linear-gradient(to top, #00008b, #0ff);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.botao7 {
+  cursor: pointer;
+  border-radius: 2000px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 32%;
+  top: 1330px;
+  width: 325px;
+  height: 100px;
+  font-size: 37px;
+  color: cyan;
+  font-family: Sans-Serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow:
+    -3px -3px 0 rgb(0, 0, 0),
+     3px -3px 0 rgb(0, 0, 0),
+    -3px  3px 0 rgb(0, 0, 0),
+     3px  3px 0 rgb(0, 0, 0);
+  background: linear-gradient(to top, red, orange);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.botao8 {
+  cursor: pointer;
+  border-radius: 2000px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 32%;
+  top: 1630px;
+  width: 325px;
+  height: 100px;
+  font-size: 37px;
+  color: white;
+  font-family: Sans-Serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow:
+    -3px -3px 0 rgb(0, 0, 0),
+     3px -3px 0 rgb(0, 0, 0),
+    -3px  3px 0 rgb(0, 0, 0),
+     3px  3px 0 rgb(0, 0, 0);
+  background: linear-gradient(to top, #2A4D8F, #478ECC, #5299E0);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  z-index: 2;
+}
+  </style>
+</head>
+
+<body>
+  <p id="reclamacao">Entrar em contato com <span style="text-align: center; font-size: 55px; color: gold;">  Dev Imperium</span></p>
+  <input id="texto" type="text" placeholder="Digite Sua Mensagem">
+  
+  <p id="entrai">Nosso Discord</p>
+  <div id="discord" class="botaodiscord"></div>
+  
+  <div id="botaoenviar" class="botaoenviar"><span>Enviar</span></div>
+  
+  <video class="primvid" src="https://files.catbox.moe/r8g4ht.mp4" autoplay muted loop></video>
+  
+  <h1 id="prim">Dev Imperium</h1>
+  <p id="ensina">Linguagens De Programação:</p>
+  <div class="container"><img id="imeg" src="" alt="image"></div>
+  
+  <video id="coisa" autoplay muted loop src="https://files.catbox.moe/61y0zn.mp4"></video>
+  
+  <p id="segn">Olá Venha aprender algumas linguagens de <span id="progr" class="cor"> Programação!</span></p>
+  
+  <audio id="tocar" src="https://files.catbox.moe/hfaoby.wav"></audio>
+  
+  <audio id="Sparta" src="https://www.dropbox.com/scl/fi/ef9cw6ogopocjipytrb0s/thisissparta.swf.mp3?rlkey=xxfxu6xjh2iixgzfqyl3on6a2&st=ka1ltrq2&dl=1"></audio>
+  
+  <div id="py" onclick="clicou1()" class="botao"><span>Python</span></div>
+  
+  <div id="py2" onclick="clicou2()" class="botao2"><span>C++</span></div>
+  
+  <div id="py3" onclick="clicou3()" class="botao3"><span>Java</span></div>
+  
+  <div id="py4" onclick="clicou4()" class="botao4"><span>Lua</span></div>
+  
+  <div id="py5" onclick="simulador1()" class="botao5"><span>Simulador Python</span></div>
+
+<div id="py6" onclick="simulador2()" class="botao6"><span>Simulador C++</span></div>
+
+<div id="py7" onclick="simulador3()" class="botao7"><span>Simulador Java</span></div>
+
+<div id="py8" onclick="simulador4()" class="botao8"><span>Simulador Lua</span></div>
+
+  <script>
+    const disc = document.getElementById("discord");
+    
+    disc.addEventListener("click", function () {
+      music.play()
+      window.location.href = "https://discord.gg/9M8ZdVj2p"
+    });
+    
+    const legal = document.getElementById("progr");
+let podeClicar = true; 
+
+legal.addEventListener("click", function () {
+  if (!podeClicar) return;
+
+  podeClicar = false;
+  music.play()
+  this.style.animation = "none";
+  void this.offsetWidth;
+  this.style.animation = "batalhar 1s linear";
+});
+
+legal.addEventListener("animationend", function () {
+  podeClicar = true;
+});
+    
+    var ThisIsSparta = document.getElementById("Sparta");
+    
+    document.getElementById("imeg").addEventListener("click", () => {
+    ThisIsSparta.play()
+});
+
+    var music = document.getElementById("tocar");
+    
+    const imagens = [
+      "https://files.catbox.moe/8p0col.png",
+      "https://files.catbox.moe/6pg51b.png",
+      
+"https://files.catbox.moe/40qnes.png"
+    ];
+
+    const imgElemento = document.getElementById("imeg");
+    imgElemento.src = imagens[Math.floor(Math.random() * imagens.length)];
+
+    function clicou1() {
+      music.play()
+      setTimeout(function() {
+        window.location.href = "Python/";
+      }, 1000);
+    }
+    
+    function clicou2() {
+    music.play()
+      setTimeout(function() {
+        window.location.href = "C++/";
+      }, 1000);
+    }
+    
+    function clicou3() {
+        music.play()
+      setTimeout(function() {
+        window.location.href = "Java/";
+      }, 1000);
+    }
+    
+        function clicou4() {
+        music.play()
+      setTimeout(function() {
+        window.location.href = "Lua/";
+      }, 1000);
+    }
+    
+        function simulador1() {
+    music.play()
+      setTimeout(function() {
+        window.location.href = "InterpretadorPython/";
+      }, 1000);
+    }
+    
+        function simulador2() {
+    music.play()
+      setTimeout(function() {
+        window.location.href = "InterpretadorC++/";
+      }, 1000);
+    }
+    
+        function simulador3() {
+    music.play()
+      setTimeout(function() {
+        window.location.href = "InterpretadorJava/";
+      }, 1000);
+    }
+    
+        function simulador4() {
+    music.play()
+      setTimeout(function() {
+        window.location.href = "InterpretadorLua/";
+      }, 1000);
+    }
+    
+    const button = document.getElementById("botaoenviar");
+
+button.addEventListener("click", () => {
+  const mensag = document.getElementById("texto").value;
+  const meuemail = "devzimperium@gmail.com";
+  const body = encodeURIComponent(mensag);
+  const email = `mailto:${meuemail}?subject=&body=${body}`;
+  window.location.href = email;
+});
+  </script>
+</body>
+</html>
