@@ -527,33 +527,34 @@ legal.addEventListener("animationend", function () {
       }, 1000);
     }
     
-        function simulador1() {
-    music.play()
-      setTimeout(function() {
-        window.location.href = "https://codapi.org/python/";
-      }, 1000);
-    }
-    
-        function simulador2() {
-    music.play()
-      setTimeout(function() {
-        window.location.href = "https://codapi.org/cpp/";
-      }, 1000);
-    }
-    
-        function simulador3() {
-    music.play()
-      setTimeout(function() {
-        window.location.href = "https://codapi.org/java/";
-      }, 1000);
-    }
-    
-        function simulador4() {
-    music.play()
-      setTimeout(function() {
-        window.location.href = "https://codapi.org/lua/";
-      }, 1000);
-    }
+        function abrirSimulador(url) {
+  if (music && music.play) {
+    music.play().catch(() => {});
+  }
+
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1000);
+}
+
+
+function simulador1() {
+  abrirSimulador("https://codapi.org/python/");
+}
+
+
+function simulador2() {
+  abrirSimulador("https://codapi.org/cpp/");
+}
+
+
+function simulador3() {
+  abrirSimulador("https://codapi.org/java/");
+}
+
+function simulador4() {
+  abrirSimulador("https://codapi.org/lua/");
+}
     
     const button = document.getElementById("botaoenviar");
 
