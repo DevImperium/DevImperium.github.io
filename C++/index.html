@@ -1,267 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>C++</title>
   <style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      font-family: "Arial", sans-serif;
       background-color: black;
-    }
-
-    pre {
-      font-family: "Times New Roman";
-      font-size: 4vw;
       color: white;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      overflow-x: auto;
-      text-align: left;
-      padding: 20px;
-      border-radius: 10px;
-      margin: auto;
-      max-width: 90vw;
+      overflow-x: hidden;
     }
 
+    
     #videoz {
       position: fixed;
       top: 0;
       left: 0;
-      width; 100vw;
+      width: 100vw;
       height: 100vh;
+      object-fit: cover;
       z-index: -1;
-      object-fit: cover
-      }
+      filter: brightness(0.4);
+    }
 
-    .cor {
-      animation: pulsar 3s ease-in-out infinite;
-      color: white;
-      border-radius: 75px;
-      font-size: 175px;
-      font-family: Comic Sans MS;
-      font-weight: 500;
-      letter-spacing: 5px;
-      text-align: center;
-      text-shadow: 
-        -4px -4px 0 rgb(0, 0, 0),
-         4px -4px 0 rgb(0, 0, 0),
-        -4px  4px 0 rgb(0, 0, 0),
-         4px  4px 0 rgb(0, 0, 0);
-         background:
-      linear-gradient(to top, #0000B0, #0ff);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      overflow: hidden;
+    
+    .content {
+      position: relative;
       z-index: 2;
-      }
+      max-width: 90vw;
+      margin: 50px auto;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    
+    .title {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 8vw;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #0000B0;
+      text-shadow: 
+        2px 2px 5px rgba(0,0,0,0.7),
+        -2px -2px 5px rgba(0,0,0,0.7);
+      animation: pulsar 3s ease-in-out infinite;
+    }
 
     @keyframes pulsar {
       0% { transform: scale(1.1); opacity: 1; }
       50% { transform: scale(1); opacity: 0.9; }
       100% { transform: scale(1.1); opacity: 1; }
     }
+
+  
+    h2 {
+      font-size: 4vw;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 15px;
+      margin: 40px 0 20px 0;
+      text-align: center;
+    }
+
+
+    .item {
+      font-size: 5vw;
+      margin: 12px 0;
+      line-height: 1.5;
+    }
+
+    .item span {
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+  
+    .int { color: dodgerblue; }
+    .float { color: red; }
+    .double { color: gold; }
+    .char { color: lime; }
+    .string { color: orange; }
+    .bool { color: yellow; }
+    .void { color: pink; }
+    .auto { color: cyan; }
+    .longshort { color: violet; }
+    .unsigned { color: grey; }
+    .operator { text-decoration: underline white; text-underline-offset: 5px; }
+
   </style>
 </head>
 
 <body>
   <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
-  <pre>
+
+  <div class="content">
+    <div class="title">C++</div>
+
+    <h2>Tipos de Dados</h2>
+    <div class="item"><span class="int">int</span> → números inteiros (ex: 10, -5)</div>
+    <div class="item"><span class="float">float</span> → números decimais simples (ex: 3.14f)</div>
+    <div class="item"><span class="double">double</span> → números decimais com maior precisão</div>
+    <div class="item"><span class="char">char</span> → caractere único (ex: 'a')</div>
+    <div class="item"><span class="string">string</span> → texto (necessário incluir &lt;string&gt;)</div>
+    <div class="item"><span class="bool">bool</span> → verdadeiro (true) ou falso (false)</div>
+    <div class="item"><span class="void">void</span> → ausência de valor (usado em funções)</div>
+    <div class="item"><span class="auto">auto</span> → tipo deduzido automaticamente pelo compilador</div>
+    <div class="item"><span class="longshort">long / short</span> → variações do tipo int</div>
+    <div class="item"><span class="unsigned">unsigned</span> → números sem sinal (apenas positivos)</div>
+
+    <h2>Operadores</h2>
+    <div class="item"><span class="operator" style="color: lightgreen;">Aritméticos</span> → +, -, *, /, %, ++, --</div>
+    <div class="item"><span class="operator" style="color: cyan;">Relacionais</span> → ==, !=, &lt;, &gt;, &lt;=, &gt;=</div>
+    <div class="item"><span class="operator" style="color: orange;">Lógicos</span> → && (E), || (OU), ! (NÃO)</div>
+    <div class="item"><span class="operator" style="color: violet;">Atribuição</span> → =, +=, -=, *=, /=, %=</div>
+    <div class="item"><span class="operator" style="color: gold;">Bitwise</span> → &amp;, |, ^, ~, &lt;&lt;, &gt;&gt;</div>
+    <div class="item"><span class="operator" style="color: white;">Outros</span> → ?: (ternário), sizeof, typeid</div>
+
+    <h2>Entrada e Saída</h2>
+    <div class="item"><span class="operator" style="color: deepskyblue;">cout</span> → imprime texto</div>
+    <div class="item"><span class="operator" style="color: lime;">cin</span> → lê entrada do usuário</div>
+    <div class="item"><span class="operator" style="color: yellow;">endl</span> → quebra de linha</div>
+    <div class="item"><span class="operator" style="color: pink;">getline(cin, var)</span> → lê linha inteira incluindo espaços</div>
+
+    <h2>Estruturas de Controle</h2>
+    <div class="item"><span class="operator" style="color: cyan;">if / else</span> → decisão condicional</div>
+    <div class="item"><span class="operator" style="color: lime;">switch / case</span> → seleção de casos</div>
+    <div class="item"><span class="operator" style="color: gold;">for</span> → laço de repetição com contador</div>
+    <div class="item"><span class="operator" style="color: orange;">while</span> → laço com condição no início</div>
+    <div class="item"><span class="operator" style="color: pink;">do / while</span> → laço com condição no final</div>
+    <div class="item"><span class="operator" style="color: violet;">break / continue</span> → controla fluxo do laço</div>
+
+    <h2>Funções</h2>
+    <div class="item"><span class="operator" style="color: lime;">void nome()</span> → função sem retorno</div>
+    <div class="item"><span class="operator" style="color: gold;">tipo nome(parâmetros)</span> → função com retorno</div>
+    <div class="item"><span class="operator" style="color: cyan;">return</span> → retorna valor</div>
+    <div class="item"><span class="operator" style="color: orange;">passagem por referência (&amp;)</span> → altera valor original</div>
+    <div class="item"><span class="operator" style="color: violet;">inline</span> → otimiza chamadas pequenas</div>
+    <div class="item"><span class="operator" style="color: pink;">recursiva</span> → chama a si mesma</div>
+    <div class="item"><span class="operator" style="color: grey;">default parameters</span> → valores padrão nos argumentos</div>
+
+    <h2>Classes e Objetos</h2>
+    <div class="item"><span class="operator" style="color: lightgreen;">class</span> → define uma classe</div>
+    <div class="item"><span class="operator" style="color: cyan;">public / private / protected</span> → níveis de acesso</div>
+    <div class="item"><span class="operator" style="color: gold;">constructor</span> → função com o mesmo nome da classe</div>
+    <div class="item"><span class="operator" style="color: orange;">destructor (~Classe)</span> → executado ao destruir o objeto</div>
+    <div class="item"><span class="operator" style="color: violet;">this</span> → ponteiro para o próprio objeto</div>
+    <div class="item"><span class="operator" style="color: pink;">new / delete</span> → aloca e libera memória</div>
+    <div class="item"><span class="operator" style="color: white;">virtual</span> → permite polimorfismo</div>
+    <div class="item"><span class="operator" style="color: grey;">herança</span> → classe pode herdar outra</div>
     
-<span style="position: absolute; left: 100px; top: 100px;" class="cor"> C++ </span>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tipos de Dados:</span>
-
-
-<span style="font-size: 60px; color: dodgerblue; text-decoration: underline white; text-underline-offset: 15px;">int</span> → números inteiros (ex: 10, -5)
-
-<span style="font-size: 60px; color: red; text-decoration: underline white; text-underline-offset: 15px;">float</span> → números decimais simples (ex: 3.14f)
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">double</span> → números decimais com maior precisão
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">char</span> → caractere único (ex: 'a')
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">string</span> → texto (necessário incluir &lt;string&gt;)
-
-<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">bool</span> → verdadeiro (true) ou falso (false)
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">void</span> → ausência de valor (usado em funções)
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">auto</span> → tipo deduzido automaticamente pelo compilador
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">long / short</span> → variações do tipo int (maior/menor tamanho)
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">unsigned</span> → números sem sinal (apenas positivos)
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Operadores:</span>
-
-
-<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">Aritméticos:</span> → +, -, *, /, %, ++, --
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">Relacionais:</span> → ==, !=, &lt;, &gt;, &lt;=, &gt;=
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">Lógicos:</span> → && (E), || (OU), ! (NÃO)
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">Atribuição:</span> → =, +=, -=, *=, /=, %=
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">Bitwise:</span> → &amp;, |, ^, ~, &lt;&lt;, &gt;&gt;
-
-<span style="font-size: 60px; color: white; text-decoration: underline white; text-underline-offset: 15px;">Outros:</span> → ?: (ternário), sizeof, typeid
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Entrada e Saída:</span>
-
-
-<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">cout</span> → imprime texto (ex: cout &lt;&lt; "Olá";)
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">cin</span> → lê entrada do usuário (ex: cin &gt;&gt; nome;)
-
-<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">endl</span> → quebra de linha
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">getline(cin, var)</span> → lê linha inteira incluindo espaços
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Estruturas de Controle:</span>
-
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">if / else</span> → decisão condicional
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">switch / case</span> → seleção de casos
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">for</span> → laço de repetição com contador
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">while</span> → laço com condição no início
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">do / while</span> → laço com condição no final
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">break / continue</span> → controla fluxo do laço
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Funções:</span>
-
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">void nome()</span> → função sem retorno
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">tipo nome(parâmetros)</span> → função com retorno
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">return</span> → retorna valor
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">passagem por referência (&amp;)</span> → altera valor original
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">inline</span> → otimiza chamadas pequenas
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">recursiva</span> → chama a si mesma
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">default parameters</span> → valores padrão nos argumentos
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Classes e Objetos:</span>
-
-
-<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">class</span> → define uma classe
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">public / private / protected</span> → níveis de acesso
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">constructor</span> → função com o mesmo nome da classe
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">destructor (~Classe)</span> → executado ao destruir o objeto
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">this</span> → ponteiro para o próprio objeto
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">new / delete</span> → aloca e libera memória
-
-<span style="font-size: 60px; color: white; text-decoration: underline white; text-underline-offset: 15px;">virtual</span> → permite polimorfismo
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">herança</span> → classe pode herdar outra
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Strings (std::string):</span>
-
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">.length()</span> → retorna tamanho da string
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">.empty()</span> → verifica se está vazia
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">.append(str)</span> → adiciona texto no fim
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">.insert(pos, str)</span> → insere texto em posição
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">.erase(pos, qtd)</span> → apaga parte do texto
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">.replace(pos, qtd, str)</span> → substitui parte
-
-<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">.substr(pos, qtd)</span> → extrai substring
-
-<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">.find(str)</span> → retorna posição da primeira ocorrência
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">.rfind(str)</span> → busca da direita pra esquerda
-
-<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">.compare(str)</span> → compara strings
-
-<span style="font-size: 60px; color: white; text-decoration: underline white; text-underline-offset: 15px;">.c_str()</span> → converte para const char*
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Vetores (std::vector):</span>
-
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">.push_back(x)</span> → adiciona elemento ao final
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">.pop_back()</span> → remove o último elemento
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">.size()</span> → número de elementos
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">.empty()</span> → verifica se está vazio
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">.clear()</span> → apaga todos os elementos
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">.at(i)</span> → acessa elemento com verificação de limite
-
-<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">.front()</span> → primeiro elemento
-
-<span style="font-size: 60px; color: lightgreen; text-decoration: underline white; text-underline-offset: 15px;">.back()</span> → último elemento
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">.resize(n)</span> → altera tamanho
-
-<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px;">.insert(pos, val)</span> → insere em posição específica
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Mapas e Conjuntos (STL):</span>
-
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px;">std::map&lt;K,V&gt;</span> → associa chaves a valores (ordenado por chave)
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px;">.insert({k, v})</span> → adiciona par chave/valor
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px;">.erase(k)</span> → remove elemento pela chave
-
-<span style="font-size: 60px; color: orange; text-decoration: underline white; text-underline-offset: 15px;">.find(k)</span> → retorna iterador para chave
-
-<span style="font-size: 60px; color: pink; text-decoration: underline white; text-underline-offset: 15px;">.size()</span> → número de elementos
-
-<span style="font-size: 60px; color: violet; text-decoration: underline white; text-underline-offset: 15px;">std::set&lt;T&gt;</span> → armazena valores únicos ordenados
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px;">.count(x)</span> → verifica se elemento existe
-
-<span style="font-size: 60px; color: deepskyblue; text-decoration: underline white; text-underline-offset: 15px;">.clear()</span> → limpa o conjunto
-
-  </pre>
+    <h2>Strings (std::string)</h2>
+    <div class="item"><span class="operator" style="color: cyan;">.length()</span> → retorna tamanho da string</div>
+    <div class="item"><span class="operator" style="color: lime;">.empty()</span> → verifica se está vazia</div>
+    <div class="item"><span class="operator" style="color: gold;">.append(str)</span> → adiciona texto no fim</div>
+    <div class="item"><span class="operator" style="color: pink;">.insert(pos, str)</span> → insere texto em posição</div>
+    <div class="item"><span class="operator" style="color: orange;">.erase(pos, qtd)</span> → apaga parte do texto</div>
+    <div class="item"><span class="operator" style="color: violet;">.replace(pos, qtd, str)</span> → substitui parte</div>
+    <div class="item"><span class="operator" style="color: deepskyblue;">.substr(pos, qtd)</span> → extrai substring</div>
+    <div class="item"><span class="operator" style="color: lightgreen;">.find(str)</span> → retorna posição da primeira ocorrência</div>
+    <div class="item"><span class="operator" style="color: grey;">.rfind(str)</span> → busca da direita pra esquerda</div>
+    <div class="item"><span class="operator" style="color: yellow;">.compare(str)</span> → compara strings</div>
+    <div class="item"><span class="operator" style="color: white;">.c_str()</span> → converte para const char*</div>
+
+    <h2>Vetores (std::vector)</h2>
+    <div class="item"><span class="operator" style="color: lime;">.push_back(x)</span> → adiciona elemento ao final</div>
+    <div class="item"><span class="operator" style="color: cyan;">.pop_back()</span> → remove o último elemento</div>
+    <div class="item"><span class="operator" style="color: gold;">.size()</span> → número de elementos</div>
+    <div class="item"><span class="operator" style="color: orange;">.empty()</span> → verifica se está vazio</div>
+    <div class="item"><span class="operator" style="color: pink;">.clear()</span> → apaga todos os elementos</div>
+    <div class="item"><span class="operator" style="color: violet;">.at(i)</span> → acessa elemento com verificação de limite</div>
+    <div class="item"><span class="operator" style="color: deepskyblue;">.front()</span> → primeiro elemento</div>
+    <div class="item"><span class="operator" style="color: lightgreen;">.back()</span> → último elemento</div>
+    <div class="item"><span class="operator" style="color: grey;">.resize(n)</span> → altera tamanho</div>
+    <div class="item"><span class="operator" style="color: yellow;">.insert(pos, val)</span> → insere em posição específica</div>
+
+    <h2>Mapas e Conjuntos (STL)</h2>
+    <div class="item"><span class="operator" style="color: gold;">std::map&lt;K,V&gt;</span> → associa chaves a valores</div>
+    <div class="item"><span class="operator" style="color: cyan;">.insert({k,v})</span> → adiciona par chave/valor</div>
+    <div class="item"><span class="operator" style="color: lime;">.erase(k)</span> → remove elemento pela chave</div>
+    <div class="item"><span class="operator" style="color: orange;">.find(k)</span> → retorna iterador para chave</div>
+    <div class="item"><span class="operator" style="color: pink;">.size()</span> → número de elementos</div>
+    <div class="item"><span class="operator" style="color: violet;">std::set&lt;T&gt;</span> → armazena valores únicos ordenados</div>
+    <div class="item"><span class="operator" style="color: grey;">.count(x)</span> → verifica se elemento existe</div>
+    <div class="item"><span class="operator" style="color: deepskyblue;">.clear()</span> → limpa o conjunto</div>
+
+  </div>
 </body>
 </html>
