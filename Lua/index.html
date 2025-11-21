@@ -1,132 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <title>Lua</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
+        font-family: "Arial", sans-serif;
         background-color: black;
-      }
-      pre {
-        font-family: "Times New Roman";
-        font-size: 4vw;
         color: white;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        overflow-x: auto;
-        text-align: left;
-        padding: 20px;
-        border-radius: 10px;
-        margin: auto;
-        max-width: 90vw;
+        overflow-x: hidden;
       }
+
+
       #videoz {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: -1;
         object-fit: cover;
+        z-index: -1;
+        filter: brightness(0.4);
       }
-      .cor {
-        animation: pulsar 3s ease-in-out infinite;
-        color: white;
-        border-radius: 75px;
-        font-size: 175px;
-        font-family: Comic Sans MS;
-        font-weight: 500;
-        letter-spacing: 5px;
-        text-align: center;
-        text-shadow: 
-          -4px -4px 0 rgb(0, 0, 0),
-           4px -4px 0 rgb(0, 0, 0),
-          -4px  4px 0 rgb(0, 0, 0),
-           4px  4px 0 rgb(0, 0, 0);
-        background: linear-gradient(to top, #4B8BBE, #4B8BBE, #e0f0ff);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        overflow: hidden;
+
+
+      .content {
+        position: relative;
         z-index: 2;
+        max-width: 90vw;
+        margin: 50px auto;
+        padding: 20px 40px;
+        background: rgba(0,0,0,0.6);
+        border-radius: 20px;
+        overflow: hidden;
       }
+
+
+      .title {
+        font-family: "Comic Sans MS", cursive;
+        font-size: 8vw;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #4B8BBE;
+        text-shadow: 
+          2px 2px 5px rgba(0,0,0,0.7),
+          -2px -2px 5px rgba(0,0,0,0.7);
+        animation: pulsar 3s ease-in-out infinite;
+      }
+
       @keyframes pulsar {
-        0%{ transform: scale(1.1); opacity: 1; }
+        0% { transform: scale(1.1); opacity: 1; }
         50% { transform: scale(1); opacity: 0.9; }
-        100%{ transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1.1); opacity: 1; }
       }
+
+
+      h2 {
+        font-size: 3vw;
+        background: white;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 15px;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+      
+      .item {
+        font-size: 5vw;
+        margin: 15px 0;
+        line-height: 1.5;
+      }
+
+      .item span {
+        font-weight: bold;
+        padding: 3px 10px;
+        border-radius: 10px;
+      }
+
+      .number { color: dodgerblue; }
+      .string { color: lime; }
+      .boolean { color: yellow; }
+      .table { color: gold; }
+      .nil { color: grey; }
+      .function { color: cyan; }
+
+      .operator { text-decoration: underline white; text-underline-offset: 5px; }
     </style>
   </head>
   <body>
     <video id="videoz" autoplay muted loop src="https://files.catbox.moe/r8g4ht.mp4"></video>
-    <pre>
-<span style="position: absolute; left: 100px; top: 100px;" class="cor">lua</span>
 
+    <div class="content">
+      <div class="title">Lua</div>
 
+      <h2>Tipos de Variáveis</h2>
+      <div class="item"><span class="number">number</span> → números inteiros ou decimais</div>
+      <div class="item"><span class="string">string</span> → textos</div>
+      <div class="item"><span class="boolean">boolean</span> → verdadeiro ou falso</div>
+      <div class="item"><span class="table">table</span> → listas ou dicionários</div>
+      <div class="item"><span class="nil">nil</span> → ausência de valor</div>
+      <div class="item"><span class="function">function</span> → funções</div>
 
-
-
-
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Tipos de Variáveis:</span>
-
-
-
-
-
-<span style="font-size: 60px; color: dodgerblue; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">number</span> → números inteiros ou decimais
-
-<span style="font-size: 60px; color: lime; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string</span> → textos (strings)
-
-<span style="font-size: 60px; color: yellow; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">boolean</span> → verdadeiro ou falso
-
-<span style="font-size: 60px; color: gold; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table</span> → tabelas (listas ou dicionários em Lua)
-
-<span style="font-size: 60px; color: grey; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">nil</span> → ausência de valor
-
-<span style="font-size: 60px; color: cyan; text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">function</span> → funções
-
-
-
-
-
-<span style="font-size: 90px; background-color: white; color: black; border-radius: 20px;">Operadores e Métodos:</span>
-
-
-
-
-
-<span style="font-size: 60px; color: rgb(255, 100, 0); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">..</span> → concatenação de strings
-
-<span style="font-size: 60px; color: rgb(0, 130, 40); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">#</span> → comprimento de uma tabela ou string
-
-<span style="font-size: 60px; color: rgb(55, 70, 170); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table.insert(tabela, valor)</span> → adiciona valor a uma tabela
-
-<span style="font-size: 60px; color: rgb(240, 80, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">table.remove(tabela, indice)</span> → remove elemento da tabela
-
-<span style="font-size: 60px; color: rgb(255, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string.upper(texto)</span> → converte para maiúsculas
-
-<span style="font-size: 60px; color: rgb(100, 220, 180); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">string.lower(texto)</span> → converte para minúsculas
-
-<span style="font-size: 60px; color: rgb(180, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">tonumber(valor)</span> → converte para número
-
-<span style="font-size: 60px; color: rgb(255, 200, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">tostring(valor)</span> → converte para string
-
-<span style="font-size: 60px; color: rgb(255, 150, 50); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">print(valor)</span> → imprime na tela
-
-<span style="font-size: 60px; color: rgb(70, 180, 255); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">pairs(tabela)</span> → iteração sobre tabelas
-
-<span style="font-size: 60px; color: rgb(240, 80, 120); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">ipairs(tabela)</span> → iteração sequencial sobre tabelas
-
-<span style="font-size: 60px; color: rgb(255, 255, 90); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.floor(valor)</span> → arredonda para baixo
-
-<span style="font-size: 60px; color: rgb(100, 220, 180); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.ceil(valor)</span> → arredonda para cima
-
-<span style="font-size: 60px; color: rgb(180, 255, 200); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">math.random(min, max)</span> → retorna número aleatório entre min e max
-
-<span style="font-size: 60px; color: rgb(255, 200, 160); text-decoration: underline white; text-underline-offset: 15px; text-decoration-thickness: 2px;">os.time()</span> → retorna tempo atual
-    </pre>
+      <h2>Operadores e Métodos</h2>
+      <div class="item"><span class="operator" style="color: orange;">..</span> → concatenação de strings</div>
+      <div class="item"><span class="operator" style="color: green;">#</span> → comprimento de uma tabela ou string</div>
+      <div class="item"><span class="operator" style="color: blue;">table.insert(tabela, valor)</span> → adiciona valor a uma tabela</div>
+      <div class="item"><span class="operator" style="color: pink;">table.remove(tabela, indice)</span> → remove elemento</div>
+      <div class="item"><span class="operator" style="color: yellow;">string.upper(texto)</span> → converte para maiúsculas</div>
+      <div class="item"><span class="operator" style="color: lightgreen;">string.lower(texto)</span> → converte para minúsculas</div>
+      <div class="item"><span class="operator" style="color: lightblue;">tonumber(valor)</span> → converte para número</div>
+      <div class="item"><span class="operator" style="color: orange;">tostring(valor)</span> → converte para string</div>
+      <div class="item"><span class="operator" style="color: cyan;">print(valor)</span> → imprime na tela</div>
+      <div class="item"><span class="operator" style="color: skyblue;">pairs(tabela)</span> → iteração sobre tabelas</div>
+      <div class="item"><span class="operator" style="color: pink;">ipairs(tabela)</span> → iteração sequencial</div>
+      <div class="item"><span class="operator" style="color: yellow;">math.floor(valor)</span> → arredonda para baixo</div>
+      <div class="item"><span class="operator" style="color: lightgreen;">math.ceil(valor)</span> → arredonda para cima</div>
+      <div class="item"><span class="operator" style="color: lightblue;">math.random(min, max)</span> → retorna número aleatório</div>
+      <div class="item"><span class="operator" style="color: orange;">os.time()</span> → retorna tempo atual</div>
+    </div>
   </body>
 </html>
